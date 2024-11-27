@@ -1,0 +1,420 @@
+li {
+       list-style: none;
+   }
+   a {
+       text-decoration: none;
+   }
+   html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    scrollbar-color: #ffffff #8a1e1e;
+   }
+   html, body.active{
+    overflow-x: hidden;
+   }
+
+   /* Navbar styling */
+.navbar {
+    position: fixed; 
+    top: 0; /* Keep it at the top */ /* Ensure it stays above other content */
+    padding: 0.75rem 1rem;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(128, 44, 44);
+    z-index: 2;
+    display: flex;
+}
+
+.navbar .navbar-brand .site-title {
+    font-size: 1.2rem;
+    padding-left: 90px;
+    font-weight: 600;
+    color: rgb(142, 33, 33);
+}
+   .main {
+       min-height: 100vh;
+       min-width: 100%;
+       background-size: 20px 55px;
+       transition: margin-left 0.4s ease;
+       background-image: repeating-linear-gradient(0deg, #ffd7d7, #ffd7d7 1px, whitesmoke 1px, whitesmoke);
+   }
+   .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 90px;
+    z-index: 4;
+    background: radial-gradient(circle at 10% 20%, rgb(161, 8, 8, 1) 0%, rgb(83, 15, 15) 90%);
+    padding: .4rem .8rem;
+    transition: all 0.4s ease;
+   }
+   .sidebar.active ~ .main {
+    margin-left: 160px; /* Shift content right */
+    width: calc(100% - 250px); /* Adjust width */
+}
+   .sidebar.active{
+    width: 250px;
+   }
+   .sidebar #sbtn{
+    position: absolute;
+    color: white;
+    top: .4rem;
+    left: 50%;
+    font-size: 1.5rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+   }
+   .sidebar.active #sbtn{
+    left: 90%;
+   }
+   .sidebar .top .logo{
+    color: white;
+    display: flex;
+    padding: 10px 0px 0px 30px; 
+    font-size: 25px;
+    font-family: "Josefin Sans";
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+   }
+   .sidebar.active .top .logo{
+    opacity: 1;
+   }
+   /* LOGO CAT */
+   .top .logo .cat{
+    font-size: 1rem;
+    margin-right: 2px;
+   }
+   .sidebar p{
+    opacity: 0;
+   }
+   .sidebar.active p{
+    opacity: 1;
+   }
+   .sidebar li{
+    position: relative;
+    padding-top: 30px;
+    list-style-type: none;
+    height: 50px;
+    width: 80%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+   }
+   .sidebar li a{
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.7rem;
+   }
+   .sidebar li a:hover{
+    background-color: white;
+    color:#b71c1c;
+   }
+   .sidebar li a i{
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+   }
+   .sidebar .nav-item{
+    font-size: 15px;
+    opacity: 0;
+   }
+   .sidebar.active .nav-item{
+    opacity: 1;
+   }
+   .sidebar.active{
+    opacity: 1;
+   }
+
+   /* .sidebar li:last-child {
+    margin-top: 400px; /* Adds vertical spacing above the "Logout" option */
+
+    .icon-image {
+        width: 2.35rem; /* Adjust the size as needed */
+        height: 2.35rem; /* Maintain aspect ratio or set a fixed height */
+        object-fit: cover; /* Ensures the image fits nicely */
+        cursor: pointer; /* Optional: mimic button behavior */
+        transition: transform 0.2s ease;
+        border-radius: 50%; /* Make it circular */
+
+    }
+    .navbar .navbar-icons {
+        position: relative;
+        display: inline-block;
+    }
+    .icon-image:hover {
+        box-shadow: 0 0 6px 2px rgba(255, 0, 0, 0.4);
+    }
+
+   img.profile-image{
+       position: relative;
+   }
+   img.profile-image:hover{
+       transform: scale(0.9);
+   }
+   .user-icon {
+       width: 32px;
+       height: 32px;
+       background-color: lightgray;
+       border-radius: 50%;
+       display: inline-block;
+   }
+   img.profile-image{
+       transition: transform 0.5s ease;
+   }
+   img.profile-image:hover{
+       transform: scale(0.9);
+   }
+   .sidebar-icons{
+    padding: 0;
+   }
+   .navbar .navbar-icons {
+    position: relative; /* Ensure the element is positioned */
+    right: 0; 
+    transition: right 0.4s ease, transform 0.4s ease;
+}
+.sidebar.active ~ .main .navbar .navbar-icons {
+    right: 160px; /* Adjust right spacing when the sidebar is active */
+}
+   .user-icon {
+       width: 32px;
+       height: 32px;
+       background-color: lightgray;
+       border-radius: 50%;
+       display: inline-block;
+   }
+   .user-profile {
+       display: flex;
+       align-items: center;
+       background-color: white;
+       padding: 15px;
+       border: solid 0.5px #D9D9D9;
+       border-radius: 5px;
+       max-width: 1300px; /* Adjust this value to control the maximum width */
+       width: 100%; /* Optional: Set width to 100% to make it responsive within its container */
+       height: auto;
+       margin: 20px 0 0;
+   }
+   .table {
+       border: solid 0.5px #D9D9D9;
+       border-radius: 5px;
+       border-collapse: separate;
+   }
+   .table td, .table th{
+       border: solid 0.5px #D9D9D9;
+       border-radius: 5px;
+   }
+   .table th{
+       background:#b71c1c;
+       color: white;
+   }
+   
+   .profile-image {
+       width: 80px;
+       height: 80px;
+       border-radius: 50%;
+       object-fit: cover;
+       margin-right: 15px;
+   }
+   
+   .profile-info {
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .profile-name {
+       font-size: 1.75rem;
+       font-weight: bold;
+       color: #333;
+       margin: 0;
+   }
+   
+   .profile-class {
+       font-size: 1rem;
+       color: #A10808;
+   }
+   .subject-container {
+       max-width: 1180px; /* Adjust to control container's max width */
+       width: 100%;
+       margin: 20px auto;
+       background-color: white;
+       padding: 20px;
+       border: solid 0.5px #D9D9D9;
+       border-radius: 5px;
+       display: flex;
+       flex-direction: column;  
+       align-items: center;  
+       justify-content: flex-start;  
+   }
+   
+   .subject-area {
+       display: flex;
+       align-items: center;
+       border: 1px solid lightgray;
+       max-width: 1100px; 
+       width: 100%;
+       background-color: #f5f5f5;
+       padding: 15px;
+       border-radius: 6px;
+       margin-bottom: 25px;
+       transition: background-color 0.3s;
+   }
+   .subject-title {
+       color: #A10808;
+       font-weight: 600;
+       text-decoration: dashed;
+       font-size: 1.35rem;
+       text-align: center;
+       justify-content: center;
+       display: flex;
+       margin-bottom: 20px;
+   }
+   .subject-area:hover {
+       background-color: #eeeeee;
+   }
+   
+   .subject-code {
+       margin-right: 6px;
+       color: #333;
+       font-size: 1.35rem;
+   }
+   
+   .subject-name {
+       color: #333;
+       font-size: 1.35rem;
+       margin-right: 8px;
+       flex-grow: 1; /* Allow .subject-name to take available space */
+   }
+   .edit-button{
+       margin-right: 5px;
+   }
+   .edit-button, .delete-button {
+       color: #b71c1c;
+       border: solid 2px #b71c1c;
+       border-radius: 7px;
+       padding: 1px 7px;
+       background-color: white;
+       overflow: hidden;
+       z-index: 1;
+       font-size: 1rem;
+       cursor: pointer;
+       transition: background-color 0.3s;
+       position: relative;
+   }
+   
+   .edit-button:hover, .delete-button:hover {
+       color: rgb(255, 255, 255);
+   }
+   .edit-button:before, .delete-button:before{
+    transition: 0.3s all ease;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    right: 100%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: #b71c1c;
+   }
+   .edit-button:hover:before, .delete-button:hover:before{
+    transition: 0.3s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+   }
+   .subject-area .fa-caret-right{
+       font-size: 1.75rem;
+       margin-right: 10px;
+   }
+   .user-p-cont{
+       align-items: center;
+       display: flex;
+       flex-direction: column;
+       padding-top: 90px;
+   }
+   .modal-header {
+       background-color: #A10808;
+       color: white;
+   }
+   .modal-dialog{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       height: 90vh;
+
+   }
+   /* Customize form inside the modal */
+   #excuseLetterModal .form-label {
+       font-weight: bold;
+       font-size: 1rem;
+   }
+   #excuseLetterModal .form-control{
+       margin-bottom: 30px;
+   }
+   #excuseLetterModal .btn-danger {
+       background-color: #C91212;
+       padding: 10px 15px;
+       font-size: 1rem;
+       border: none;
+       transition: background-color 0.3s;
+   }
+   #excuseLetterModal .btn-danger:hover {
+       background-color: #A10808;
+   }
+   .scrollable-dropdown {
+    max-height: 150px; /* Limit height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Customize scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+.scrollable-dropdown::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+.scrollable-dropdown::-webkit-scrollbar-thumb {
+    background: #f1f1f1; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.scrollable-dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.scrollable-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #8a1e1e; /* Color on hover */
+}
+
+/* Firefox scrollbar styling */
+.scrollable-dropdown {
+    scrollbar-color: #8a1e1e #f1f1f1; /* Thumb color and track color */
+    scrollbar-width: thin; 
+}
+
+
+   .fa-circle-xmark {
+       font-size: 1.5rem; 
+       color: white;
+       background: none;
+       border: none;
+       transition: color 0.3s ease, background-color 0.3s ease;
+       margin-left: auto;
+   }
+   
+   .fa-circle-xmark:hover {
+       color: #FF2400;
+       background: none;
+   }
